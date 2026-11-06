@@ -37,24 +37,17 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    
-
-    #Condition ValueError
     if not isinstance(X,np.ndarray) or X.ndim != 2:
         raise ValueError
 
-    #Initialisation
     i = 0
     j = 0
 
-    #Boucle pour scanner le tableau
     for row in range(X.shape[0]):
         for col in range(X.shape[1]):
             if X[row,col]>X[i,j]:
                 i,j = row, col
     return i, j
-
-
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
@@ -73,11 +66,6 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    #Création du tableau pour le factoriel
     n = np.arange(1, n_terms+1)
-
-    #Calcul du Pi
     pi = 2*np.prod((4*n**2)/(4*n**2-1))
     return pi
